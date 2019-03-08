@@ -447,6 +447,8 @@ let coda_commands log =
       , Coda_shared_prefix_multiproposer_test.command )
     ; (Coda_restart_node_test.name, Coda_restart_node_test.command)
     ; (Coda_receipt_chain_test.name, Coda_receipt_chain_test.command)
+      (* bootstrap *)
+    ; (Coda_bootstrap_test.name, Coda_bootstrap_test.command)
     ; ("full-test", Full_test.command)
     ; ("transaction-snark-profiler", Transaction_snark_profiler.command) ]
   in
