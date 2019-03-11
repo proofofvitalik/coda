@@ -266,6 +266,7 @@ end = struct
 
   let run ~parent_log ~network ~frontier ~ledger_db ~transition_reader =
     let logger = Logger.child parent_log __MODULE__ in
+    Logger.info logger "Running Bootstrap" ;
     let initial_breadcrumb = Transition_frontier.root frontier in
     let initial_root_verified_transition =
       initial_breadcrumb |> Transition_frontier.Breadcrumb.transition_with_hash
