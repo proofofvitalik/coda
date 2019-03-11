@@ -51,9 +51,8 @@ let main () =
     after
       (Time.Span.of_ms
          (* TODO: Is there a way we can get this down? *)
-         ( Consensus.Constants.delta
-           + Consensus.Constants.c * Consensus.Constants.k * 3
-             * Consensus.Constants.block_window_duration_ms
+         ( Consensus.Constants.(
+             ((delta * c) + (c * k * 3)) * block_window_duration_ms)
          |> Float.of_int ))
   in
   let%bind () = Coda_worker_testnet.Api.start testnet 1 in
