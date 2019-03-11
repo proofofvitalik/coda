@@ -52,7 +52,7 @@ let main () =
       (Time.Span.of_ms
          (* TODO: Is there a way we can get this down? *)
          ( Consensus.Constants.(
-             ((delta * c) + (c * k * 3)) * block_window_duration_ms)
+             (delta + (c * k * 3)) * block_window_duration_ms)
          |> Float.of_int ))
   in
   Logger.info log "Starting up %d" 1 ;
