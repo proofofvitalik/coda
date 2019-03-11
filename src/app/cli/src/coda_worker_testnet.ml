@@ -96,9 +96,8 @@ let start_prefix_check log workers events testnet ~acceptable_delay =
       !"lengths: %{sexp: int list} shared_prefix: %{sexp: string option} \
         shared_prefix_age: %d"
       lengths newest_shared shared_prefix_age ;
-    if not (shared_prefix_age <= 5) then (
-      Logger.fatal log "prefix too old" ;
-      ignore (exit 1) ) ;
+    if not (shared_prefix_age <= 5) then Logger.fatal log "prefix too old"
+      (* ignore (exit 1) *) ;
     ()
   in
   let last_time = ref (Time.now ()) in

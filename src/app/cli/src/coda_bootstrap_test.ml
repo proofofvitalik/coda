@@ -55,8 +55,9 @@ let main () =
              ((delta * c) + (c * k * 3)) * block_window_duration_ms)
          |> Float.of_int ))
   in
+  Logger.info log "Starting up %d" 1 ;
   let%bind () = Coda_worker_testnet.Api.start testnet 1 in
-  let%map () = after (Time.Span.of_sec 240.) in
+  let%map () = after (Time.Span.of_sec 60.) in
   ()
 
 let command =
